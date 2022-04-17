@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/lorranyabrantes/equalize#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "http": "^0.0.1-security",
+    "oracledb": "^5.3.0"
   }
 }
