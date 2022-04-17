@@ -1,0 +1,19 @@
+{
+  "name": "equalize",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lorranyabrantes/equalize.git"
+  },
+  "author": "Lorrany Abrantes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lorranyabrantes/equalize/issues"
+  },
+  "homepage": "https://github.com/lorranyabrantes/equalize#readme"
+}
