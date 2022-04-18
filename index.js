@@ -1,8 +1,10 @@
 import express from "express";
-import { GetAddress } from "./src/Get/Address";
+// import { GetAddress } from "./src/Get/Address";
 import { GetCompany } from "./src/Get/Company";
-import { GetPhone } from "./src/Get/Phone";
+import { GetEmployee } from "./src/Get/Employee";
+// import { GetPhone } from "./src/Get/Phone";
 import { PostCompany } from "./src/Post/Company";
+import { PostEmployee } from "./src/Post/Employee";
 
 const port = 3000;
 const app = express();
@@ -14,7 +16,6 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/company", async (req, res) => {
-  console.log(req.query);
   GetCompany(req.query, (response) => {
     const data = response;
     res.json({ data });
@@ -27,19 +28,33 @@ app.post("/company", function (req, res) {
   });
 });
 
-app.get("/phone", async (req, res) => {
-  GetPhone((response) => {
-    const data = response.rows;
+app.get("/employee", async (req, res) => {
+  GetEmployee(req.query, (response) => {
+    const data = response;
     res.json({ data });
   });
 });
 
-app.get("/address", async (req, res) => {
-  GetAddress((response) => {
-    const data = response.rows;
-    res.json({ data });
+app.post("/employee", function (req, res) {
+  PostEmployee(req.body, (response) => {
+    console.log(req.body);
+    res.json({ response });
   });
 });
+
+// app.get("/phone", async (req, res) => {
+//   GetPhone((response) => {
+//     const data = response.rows;
+//     res.json({ data });
+//   });
+// });
+
+// app.get("/address", async (req, res) => {
+//   GetAddress((response) => {
+//     const data = response.rows;
+//     res.json({ data });
+//   });
+// });
 
 app.listen(port, () => {
   console.log(`Server is running at localhost:${port}`);
