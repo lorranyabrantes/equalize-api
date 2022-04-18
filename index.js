@@ -24,7 +24,8 @@ app.get("/company", async (req, res) => {
 
 app.post("/company", function (req, res) {
   PostCompany(req.body, (response) => {
-    res.json({ response });
+    const data = response;
+    res.json({ data });
   });
 });
 
@@ -37,8 +38,8 @@ app.get("/employee", async (req, res) => {
 
 app.post("/employee", function (req, res) {
   PostEmployee(req.body, (response) => {
-    console.log(req.body);
-    res.json({ response });
+    const data = response;
+    res.json({ data });
   });
 });
 

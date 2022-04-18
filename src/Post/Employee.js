@@ -17,7 +17,6 @@ export const PostEmployee = (body, callback) => {
           execute(
             employee,
             (resultEmployee) => {
-              callback(resultEmployee);
               const phone = `INSERT INTO T_TELEFONE (vl_ddi, vl_ddd, vl_telefone, cd_pessoa) VALUES (${body.phone.ddi}, ${body.phone.ddd}, ${body.phone.value}, ${resultEmployee.outBinds.id[0]})`;
 
               execute(phone, () => {
