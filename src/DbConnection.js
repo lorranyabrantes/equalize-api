@@ -1,5 +1,6 @@
 require("dotenv").config();
 const oracledb = require("oracledb");
+oracledb.autoCommit = true;
 
 const DATABASE_USERNAME = process.env.DATABASE_USERNAME;
 const DATABASE_PASSWORD = process.env.DATABASE_PASSWORD;
@@ -11,9 +12,7 @@ const connect = (callback) => {
       libDir: "/Users/loabrantes/Downloads/instantclient_19_8",
     });
   } catch (err) {
-    console.error("Whoops!");
-    console.error(err);
-    process.exit(1);
+    console.log("Oracle Client library has already been initialized");
   }
 
   oracledb.getConnection(
@@ -34,25 +33,33 @@ const connect = (callback) => {
   );
 };
 
-const close = (connection) => {
-  connection.close(function (err) {
-    if (err) {
-      console.error("err", err);
-    }
-  });
-};
-
-export const execute = async (query, callback, params = []) => {
+export const execute = async (query, callback, returnId) => {
   connect((connection) => {
+    let params;
+    if (returnId) {
+      params = {
+        id: {
+          type: oracledb.NUMBER,
+          dir: oracledb.BIND_OUT,
+        },
+      };
+    } else {
+      params = {};
+    }
+
     connection.execute(query, params, function (err, result) {
       if (err) {
         console.error("err", err);
         return;
       }
 
-      close(connection);
+      connection.close(function (err) {
+        if (err) {
+          console.error("err", err);
+        }
 
-      callback(result);
+        callback(result);
+      });
     });
   });
 };
