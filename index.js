@@ -6,7 +6,7 @@ import { GetEmployee } from "./src/Get/Employee";
 import { PostCompany } from "./src/Post/Company";
 import { PostEmployee } from "./src/Post/Employee";
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());

@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "stop": "killall -9 node",
     "start": "babel-node index.js"
   },
   "repository": {
