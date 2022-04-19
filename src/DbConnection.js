@@ -5,11 +5,12 @@ oracledb.autoCommit = true;
 const DATABASE_USERNAME = process.env.DATABASE_USERNAME;
 const DATABASE_PASSWORD = process.env.DATABASE_PASSWORD;
 const DATABASE_HOST = process.env.DATABASE_HOST;
+const ORACLE_HOME = process.env.ORACLE_HOME;
 
 const connect = (callback) => {
   try {
     oracledb.initOracleClient({
-      libDir: "/Users/loabrantes/Downloads/instantclient_19_8",
+      libDir: `${ORACLE_HOME}/instantclient_21_5`,
     });
   } catch (err) {
     console.log("Oracle Client library has already been initialized");
