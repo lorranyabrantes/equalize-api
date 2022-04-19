@@ -11,9 +11,9 @@ const app = express();
 
 app.use(express.json());
 
-app.get("/", async (req, res) => {
-  res.json({ index: "index" });
-});
+// app.get("/", async (req, res) => {
+//   res.json({ index: "index" });
+// });
 
 app.get("/company", async (req, res) => {
   GetCompany(req.query, (response) => {
