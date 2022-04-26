@@ -26,3 +26,7 @@ npm install
 ```
 npm start
 ```
+
+### Operation on postman
+
+https://drive.google.com/drive/u/0/folders/1N9inAcuzdz0cHAdx5UYaPcmmnbZgTUF0
