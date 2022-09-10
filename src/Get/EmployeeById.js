@@ -36,7 +36,7 @@ export const GetEmployeeById = (params, callback) => {
                     cpf: employee[2],
                     email: employee[3],
                     profession: employee[4],
-                    senha: employee[9],
+                    password: employee[9],
                     company: {
                       name: company[1],
                       cnpj: company[2],

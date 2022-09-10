@@ -7,13 +7,13 @@ import { GetPhone } from "./src/Get/Phone";
 import { PostCompany } from "./src/Post/Company";
 import { PostEmployee } from "./src/Post/Employee";
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
 
 app.get("/", async (req, res) => {
-  res.json({ index: "oioio" });
+  res.json({ index: "oiiii" });
 });
 
 app.get("/company", async (req, res) => {
