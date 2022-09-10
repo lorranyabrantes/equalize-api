@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 app.get("/", async (req, res) => {
-  res.json({ index: "index" });
+  res.json({ index: "oioio" });
 });
 
 app.get("/company", async (req, res) => {
