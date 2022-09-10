@@ -1,14 +1,15 @@
 import { execute } from "../DbConnection";
 
-export const GetEmployee = (params, callback) => {
+export const GetEmployeeByEmail = (params, callback) => {
+  console.log(`SELECT * FROM T_FUNCIONARIO WHERE ds_email='${params.email}'`);
   execute(
-    `SELECT * FROM T_FUNCIONARIO WHERE cd_pessoa=${params.id}`,
+    `SELECT * FROM T_FUNCIONARIO WHERE ds_email='${params.email}'`,
     (resultEmployee) => {
       const {
         rows: [employee],
       } = resultEmployee;
       execute(
-        `SELECT * FROM T_TELEFONE WHERE cd_pessoa=${params.id}`,
+        `SELECT * FROM T_TELEFONE WHERE cd_pessoa=${employee[0]}`,
         (resultPhone) => {
           const {
             rows: [phone],
@@ -28,12 +29,15 @@ export const GetEmployee = (params, callback) => {
                     rows: [company],
                   } = resultCompany;
 
+                  console.log(employee);
+
                   callback({
                     id: employee[0],
                     name: employee[1],
                     cpf: employee[2],
                     email: employee[3],
                     profession: employee[4],
+                    senha: employee[9],
                     company: {
                       name: company[1],
                       cnpj: company[2],

@@ -10,7 +10,7 @@ const ORACLE_CLIENT_PATH = process.env.ORACLE_CLIENT_PATH;
 const connect = (callback) => {
   try {
     oracledb.initOracleClient({
-      libDir: `${ORACLE_CLIENT_PATH}`,
+      libDir: "/Users/loabrantes/Downloads/instantclient_19_8",
     });
   } catch (err) {
     console.log("Oracle Client library has already been initialized");
