@@ -38,6 +38,7 @@ export const GetEmployeeByEmail = (params, callback) => {
                     email: employee[3],
                     profession: employee[4],
                     password: employee[9],
+                    engagement: employee[10],
                     company: {
                       name: company[1],
                       cnpj: company[2],
