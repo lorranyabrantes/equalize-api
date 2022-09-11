@@ -12,8 +12,9 @@ export const PostEmployee = (body, callback) => {
             rows: [company],
           } = resultCompany;
 
-          const employee = `INSERT INTO T_FUNCIONARIO (nm_pessoa, sq_cpf, ds_email, ds_profissao, cd_endereco, cd_empresa) VALUES ('${body.name}', ${body.cpf}, '${body.email}', '${body.profession}', ${resultAddress.outBinds.id[0]}, ${company[0]}) returning cd_pessoa into :id`;
+          const employee = `INSERT INTO T_FUNCIONARIO (nm_pessoa, sq_cpf, ds_email, ds_profissao, vl_engajamento, vl_senha, cd_endereco, cd_empresa) VALUES ('${body.name}', ${body.cpf}, '${body.email}', '${body.profession}', '${body.engagement}', '${body.password}', ${resultAddress.outBinds.id[0]}, ${company[0]}) returning cd_pessoa into :id`;
 
+          console.log(employee);
           execute(
             employee,
             (resultEmployee) => {
